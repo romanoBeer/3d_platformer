@@ -1,0 +1,115 @@
+[gd_scene load_steps=19 format=3 uid="uid://dgveaai7dmpa6"]
+
+[ext_resource type="PackedScene" uid="uid://vrx66x6wlys1" path="res://scenes/menu/menu_character.tscn" id="1_0nokl"]
+[ext_resource type="Texture2D" uid="uid://cys35qs5ebvsi" path="res://assets/skybox/qwantani_noon_puresky_1k.exr" id="1_wnukl"]
+[ext_resource type="PackedScene" uid="uid://4g1uwyhfveff" path="res://scenes/assets/cloud_12.tscn" id="2_8rvje"]
+[ext_resource type="PackedScene" uid="uid://daw13drbrwgpr" path="res://assets/nature/RockPlatform_Tall.gltf" id="3_sd0xo"]
+[ext_resource type="PackedScene" uid="uid://drms2vk3tqjdl" path="res://assets/nature/RockPlatforms_Medium.gltf" id="4_wnukl"]
+[ext_resource type="PackedScene" uid="uid://b7sq6cfvvdmgj" path="res://assets/nature/RockPlatforms_Large.gltf" id="5_vsg3h"]
+[ext_resource type="PackedScene" uid="uid://b0jdfkrikmxpd" path="res://assets/nature/RockPlatforms_3.gltf" id="6_1st62"]
+[ext_resource type="PackedScene" uid="uid://bjbysa1esq23" path="res://assets/nature/RockPlatforms_1.gltf" id="7_p76o4"]
+[ext_resource type="PackedScene" uid="uid://cxgty4a3qxdng" path="res://assets/nature/Bush.gltf" id="8_7hxve"]
+[ext_resource type="PackedScene" uid="uid://5m6rkye3i3oh" path="res://assets/level/Arrow_Side.gltf" id="9_se12s"]
+[ext_resource type="PackedScene" uid="uid://ftvex85v0iyf" path="res://assets/level/Fence_Middle.gltf" id="10_o1ojw"]
+[ext_resource type="PackedScene" uid="uid://b13ws6cci282o" path="res://scenes/assets/cloud_22.tscn" id="11_r1o0b"]
+[ext_resource type="PackedScene" uid="uid://3qpd5pwp8d14" path="res://assets/nature/Tree.gltf" id="13_vsg3h"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_vsg3h"]
+panorama = ExtResource("1_wnukl")
+
+[sub_resource type="Sky" id="Sky_8gvmq"]
+sky_material = SubResource("PanoramaSkyMaterial_vsg3h")
+
+[sub_resource type="Environment" id="Environment_got42"]
+background_mode = 2
+background_color = Color(0.444854, 0.397927, 0, 1)
+sky = SubResource("Sky_8gvmq")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_wnukl"]
+exposure_multiplier = 0.85
+dof_blur_far_enabled = true
+dof_blur_far_distance = 12.91
+dof_blur_amount = 0.02
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sd0xo"]
+albedo_color = Color(0.262745, 0.270588, 0.117647, 1)
+normal_enabled = true
+normal_scale = -16.0
+heightmap_enabled = true
+heightmap_scale = -0.4
+
+[node name="MenuBackground" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_got42")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0.443512, -0.434398, 0.783961, -0.230868, 0.789807, 0.568247, 0, 0, 4.20278)
+light_color = Color(1, 1, 0, 1)
+light_energy = 0.1
+light_indirect_energy = 0.272
+light_volumetric_fog_energy = 0.645
+light_specular = 1.095
+shadow_enabled = true
+sky_mode = 1
+
+[node name="Character" parent="." instance=ExtResource("1_0nokl")]
+transform = Transform3D(0.745999, 0, -0.665947, 0, 1, 0, 0.665947, 0, 0.745999, 4.25338, 0, 0)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.981413, 0.191905, 0, -0.191905, 0.981413, 0, 3.54994, 5.34719)
+attributes = SubResource("CameraAttributesPractical_wnukl")
+
+[node name="Cloud_12" parent="." instance=ExtResource("2_8rvje")]
+transform = Transform3D(0.972857, 0, -0.231408, 0, 1, 0, 0.231408, 0, 0.972857, 7.21913, 4.86485, -3.90809)
+
+[node name="Cloud_12" parent="Cloud_12" instance=ExtResource("2_8rvje")]
+transform = Transform3D(0.972857, 0, -0.231408, 0, 1, 0, 0.231408, 0, 0.972857, -24.2272, 1.92555, -4.00021)
+
+[node name="RockPlatform_Tall2" parent="." instance=ExtResource("3_sd0xo")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.76809, 0, -4.46767)
+
+[node name="RockPlatforms_Medium2" parent="." instance=ExtResource("4_wnukl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.33539, 0, -4.97676)
+
+[node name="RockPlatforms_Large2" parent="." instance=ExtResource("5_vsg3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0386, 0, -4.08579)
+
+[node name="RockPlatforms_32" parent="." instance=ExtResource("6_1st62")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.15367, 0, -4.04732)
+
+[node name="RockPlatforms_12" parent="." instance=ExtResource("7_p76o4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.31951, 0, -1.43698)
+
+[node name="RockPlatforms_12" parent="RockPlatforms_12" instance=ExtResource("7_p76o4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.85149, 0, -5.24153)
+
+[node name="Bush2" parent="." instance=ExtResource("8_7hxve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.71908, 0, -3.23052)
+
+[node name="Bush3" parent="." instance=ExtResource("8_7hxve")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.13215, 0, -3.42328)
+
+[node name="Arrow_Side2" parent="." instance=ExtResource("9_se12s")]
+transform = Transform3D(0.962227, 0, -0.272247, 0, 1, 0, 0.272247, 0, 0.962227, 3.27533, 0, -1.63765)
+
+[node name="Fence_Middle2" parent="." instance=ExtResource("10_o1ojw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.31308, 0, -1.39037)
+
+[node name="Fence_Middle3" parent="." instance=ExtResource("10_o1ojw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.303734, 0, -1.36867)
+
+[node name="Fence_Middle4" parent="." instance=ExtResource("10_o1ojw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.67143, 0, -1.35646)
+
+[node name="Cloud_22" parent="." instance=ExtResource("11_r1o0b")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.37803, 5, -10)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(42.1011, 0, 0, 0, 1, 0, 0, 0, 9.7389, 0, -0.436452, 0)
+material = SubResource("StandardMaterial3D_sd0xo")
+
+[node name="Tree2" parent="." instance=ExtResource("13_vsg3h")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.47342, 0, -7.44184)

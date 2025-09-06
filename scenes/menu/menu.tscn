@@ -1,0 +1,105 @@
+[gd_scene load_steps=9 format=3 uid="uid://chmb54cktgfba"]
+
+[ext_resource type="PackedScene" uid="uid://dgveaai7dmpa6" path="res://scenes/menu/menu_background.tscn" id="1_lti8b"]
+[ext_resource type="FontFile" uid="uid://rdd6ub26lf31" path="res://assets/fonts/Starborn.ttf" id="1_ouk20"]
+[ext_resource type="Script" uid="uid://xhos27pe0mfv" path="res://scenes/menu/menu.gd" id="2_e0arn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_4hy44"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ytr4m"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_l48gv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ecwwl"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kk3ma"]
+
+[node name="Menu" type="CanvasLayer"]
+
+[node name="Background" type="Node3D" parent="."]
+
+[node name="MenuBackground" parent="Background" instance=ExtResource("1_lti8b")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_e0arn")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 64
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 64
+theme_override_constants/margin_bottom = 80
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
+layout_mode = 2
+
+[node name="GameTitle" type="Label" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_color = Color(0.231465, 0.580879, 1, 1)
+theme_override_colors/font_outline_color = Color(1, 0.387955, 0.319725, 1)
+theme_override_constants/outline_size = 10
+theme_override_fonts/font = ExtResource("1_ouk20")
+theme_override_font_sizes/font_size = 45
+text = "3D PLATFORMER"
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+
+[node name="StartBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.143706, 0.378591, 1, 1)
+theme_override_colors/font_pressed_color = Color(2.5028e-06, 0, 0.714823, 1)
+theme_override_fonts/font = ExtResource("1_ouk20")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ecwwl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kk3ma")
+text = "Start Game"
+
+[node name="SettingsBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.143706, 0.378591, 1, 1)
+theme_override_colors/font_pressed_color = Color(2.5028e-06, 0, 0.714823, 1)
+theme_override_fonts/font = ExtResource("1_ouk20")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ecwwl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kk3ma")
+text = "Settings"
+
+[node name="QuitBtn" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_colors/font_hover_color = Color(0.143706, 0.378591, 1, 1)
+theme_override_colors/font_pressed_color = Color(2.5028e-06, 0, 0.714823, 1)
+theme_override_fonts/font = ExtResource("1_ouk20")
+theme_override_font_sizes/font_size = 25
+theme_override_styles/focus = SubResource("StyleBoxEmpty_4hy44")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_l48gv")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_ecwwl")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_kk3ma")
+text = "Quit"
+
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/StartBtn" to="Control" method="_on_start_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/SettingsBtn" to="Control" method="_on_settings_btn_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitBtn" to="Control" method="_on_quit_btn_pressed"]

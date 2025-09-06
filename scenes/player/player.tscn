@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://lyt3a2igwwqn"]
+
+[ext_resource type="Script" uid="uid://dkw0jnig6sarq" path="res://scenes/player/player.gd" id="1_dovo2"]
+[ext_resource type="PackedScene" uid="uid://dihe8scrdavyj" path="res://scenes/player/character.tscn" id="2_dovo2"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dovo2"]
+radius = 0.9
+height = 3.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_dovo2"]
+
+[node name="Player" type="CharacterBody3D"]
+collision_mask = 30
+script = ExtResource("1_dovo2")
+
+[node name="Character" parent="." instance=ExtResource("2_dovo2")]
+unique_name_in_owner = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52026, 0.120851)
+shape = SubResource("CapsuleShape3D_dovo2")
+
+[node name="CameraPivot" type="Node3D" parent="."]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 0.999945, 0.0104717, 0, -0.0104717, 0.999945, 0, 2.07678, 0.165152)
+
+[node name="SpringArm3D" type="SpringArm3D" parent="CameraPivot"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0)
+shape = SubResource("SphereShape3D_dovo2")
+spring_length = 8.0
+
+[node name="Camera3D" type="Camera3D" parent="CameraPivot/SpringArm3D"]
+unique_name_in_owner = true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=12 format=3 uid="uid://cccu2f2iou1q2"]
+
+[ext_resource type="PackedScene" uid="uid://2ncf7nyogrdi" path="res://assets/platforms/Cube_Dirt_Center_Tall.gltf" id="1_3t4qj"]
+[ext_resource type="PackedScene" uid="uid://c8ycpljf8plqa" path="res://assets/platforms/Cube_Dirt_Corner_Tall.gltf" id="2_vbxih"]
+[ext_resource type="PackedScene" uid="uid://i36c34mftn7r" path="res://assets/platforms/Cube_Dirt_Side_Tall.gltf" id="3_llslk"]
+[ext_resource type="PackedScene" uid="uid://dw1d7bdmaxnqs" path="res://assets/platforms/Cube_Grass_Bottom_Tall.gltf" id="4_3vuy5"]
+[ext_resource type="PackedScene" uid="uid://c4yg4m065vwbn" path="res://assets/platforms/Cube_Grass_Center_Tall.gltf" id="5_uk7p2"]
+[ext_resource type="PackedScene" uid="uid://mvuabreitdj0" path="res://assets/platforms/Cube_Grass_CornerBottom_Tall.gltf" id="6_fuouo"]
+[ext_resource type="PackedScene" uid="uid://b36t4s0sm2y2g" path="res://assets/platforms/Cube_Grass_CornerCenter_Tall.gltf" id="7_r4a6v"]
+[ext_resource type="PackedScene" uid="uid://binq5swqaw47f" path="res://assets/platforms/Cube_Grass_Corner_Tall.gltf" id="8_c6cfs"]
+[ext_resource type="PackedScene" uid="uid://d1eao0c6gtfxs" path="res://assets/platforms/Cube_Grass_SideBottom_Tall.gltf" id="9_8ltja"]
+[ext_resource type="PackedScene" uid="uid://bbrtukafh7gof" path="res://assets/platforms/Cube_Grass_SideCenter_Tall.gltf" id="10_bv1rx"]
+[ext_resource type="PackedScene" uid="uid://b8kkpo4xqwik1" path="res://assets/platforms/Cube_Grass_Side_Tall.gltf" id="11_84uxr"]
+
+[node name="GridMap" type="GridMap"]
+
+[node name="Cube_Dirt_Center_Tall2" parent="." instance=ExtResource("1_3t4qj")]
+
+[node name="Cube_Dirt_Corner_Tall2" parent="." instance=ExtResource("2_vbxih")]
+
+[node name="Cube_Dirt_Side_Tall2" parent="." instance=ExtResource("3_llslk")]
+
+[node name="Cube_Grass_Bottom_Tall2" parent="." instance=ExtResource("4_3vuy5")]
+
+[node name="Cube_Grass_Center_Tall2" parent="." instance=ExtResource("5_uk7p2")]
+
+[node name="Cube_Grass_CornerBottom_Tall2" parent="." instance=ExtResource("6_fuouo")]
+
+[node name="Cube_Grass_CornerCenter_Tall2" parent="." instance=ExtResource("7_r4a6v")]
+
+[node name="Cube_Grass_Corner_Tall2" parent="." instance=ExtResource("8_c6cfs")]
+
+[node name="Cube_Grass_SideBottom_Tall2" parent="." instance=ExtResource("9_8ltja")]
+
+[node name="Cube_Grass_SideCenter_Tall2" parent="." instance=ExtResource("10_bv1rx")]
+
+[node name="Cube_Grass_Side_Tall2" parent="." instance=ExtResource("11_84uxr")]
