@@ -11,7 +11,7 @@ func _process(delta):
 func _on_body_entered(body: Node3D) -> void:
 	Global.coins += 1
 	print(Global.coins)
-	if Global.coins >=
+	#if Global.coins >=
 	set_collision_layer_value(3, false)
 	set_collision_mask_value(1, false)
 	$AnimationPlayer.play("bounce")
