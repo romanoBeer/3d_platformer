@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bg1sdwplmwmjw"]
+
+[ext_resource type="Script" uid="uid://ci3i3u1teqjmi" path="res://coin_count.gd" id="1_6p4dp"]
+[ext_resource type="Texture2D" uid="uid://bh6ov842ep5dq" path="res://coin_points.png" id="1_30iww"]
+[ext_resource type="FontFile" uid="uid://rdd6ub26lf31" path="res://assets/fonts/Starborn.ttf" id="2_6p4dp"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5ex0n"]
+bg_color = Color(0, 0, 0, 0.184314)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="CoinCount" type="CanvasLayer"]
+script = ExtResource("1_6p4dp")
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 18.0
+offset_top = 20.0
+offset_right = 136.0
+offset_bottom = 62.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_5ex0n")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_left = 21.0
+offset_top = 23.0
+offset_right = 62.0
+offset_bottom = 60.0
+texture = ExtResource("1_30iww")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="."]
+offset_left = 67.0
+offset_top = 33.0
+offset_right = 82.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("2_6p4dp")
+theme_override_font_sizes/font_size = 19
+text = "x"
+
+[node name="CoinsLabel" type="Label" parent="."]
+offset_left = 86.0
+offset_top = 28.0
+offset_right = 132.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(1, 0.803922, 0, 1)
+theme_override_fonts/font = ExtResource("2_6p4dp")
+theme_override_font_sizes/font_size = 24
+text = "##"

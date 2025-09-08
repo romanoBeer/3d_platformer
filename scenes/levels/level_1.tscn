@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://dyh3sbk4uap0r"]
+[gd_scene load_steps=42 format=3 uid="uid://dyh3sbk4uap0r"]
 
+[ext_resource type="Script" uid="uid://dkg524o5skbqt" path="res://scenes/levels/level_1.gd" id="1_4yk0h"]
 [ext_resource type="PackedScene" uid="uid://lyt3a2igwwqn" path="res://scenes/player/player.tscn" id="1_ksju7"]
 [ext_resource type="Texture2D" uid="uid://cys35qs5ebvsi" path="res://assets/skybox/qwantani_noon_puresky_1k.exr" id="1_x42e6"]
 [ext_resource type="MeshLibrary" uid="uid://crookuhbthdhu" path="res://gridmap/level_grid_map.tres" id="2_6iamk"]
@@ -29,6 +30,7 @@
 [ext_resource type="Script" uid="uid://cofr7des53bln" path="res://addons/proton_scatter/src/scatter_item.gd" id="28_row31"]
 [ext_resource type="Script" uid="uid://db355hcq1jg6v" path="res://addons/proton_scatter/src/scatter_shape.gd" id="29_ytidy"]
 [ext_resource type="Script" uid="uid://bp4yaq615iyl5" path="res://addons/proton_scatter/src/shapes/box_shape.gd" id="30_hvllt"]
+[ext_resource type="PackedScene" uid="uid://bg1sdwplmwmjw" path="res://coin_count.tscn" id="30_t4umt"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_6761a"]
 panorama = ExtResource("1_x42e6")
@@ -42,7 +44,7 @@ sky = SubResource("Sky_3hls8")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="Resource" id="Resource_0qwwm"]
+[sub_resource type="Resource" id="Resource_t4umt"]
 script = ExtResource("24_cfnpk")
 amount = 14
 enabled = true
@@ -51,7 +53,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 1
 
-[sub_resource type="Resource" id="Resource_t4umt"]
+[sub_resource type="Resource" id="Resource_4yk0h"]
 script = ExtResource("25_wvtie")
 position = Vector3(0.15, 0.15, 0.15)
 rotation = Vector3(0.1, 360, 0.1)
@@ -62,7 +64,7 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 2
 
-[sub_resource type="Resource" id="Resource_4yk0h"]
+[sub_resource type="Resource" id="Resource_vmrhw"]
 script = ExtResource("26_o8s4s")
 iterations = 3
 offset_step = 0.2
@@ -74,7 +76,7 @@ custom_seed = 0
 restrict_height = true
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_vmrhw"]
+[sub_resource type="Resource" id="Resource_cfnpk"]
 script = ExtResource("27_ebb2h")
 ray_direction = Vector3(0, -1, 0)
 ray_length = 5.0
@@ -90,9 +92,9 @@ custom_seed = 0
 restrict_height = false
 reference_frame = 0
 
-[sub_resource type="Resource" id="Resource_cfnpk"]
+[sub_resource type="Resource" id="Resource_wvtie"]
 script = ExtResource("22_4yk0h")
-stack = Array[ExtResource("23_vmrhw")]([SubResource("Resource_0qwwm"), SubResource("Resource_t4umt"), SubResource("Resource_4yk0h"), SubResource("Resource_vmrhw")])
+stack = Array[ExtResource("23_vmrhw")]([SubResource("Resource_t4umt"), SubResource("Resource_4yk0h"), SubResource("Resource_vmrhw"), SubResource("Resource_cfnpk")])
 
 [sub_resource type="Resource" id="Resource_dwx2n"]
 script = ExtResource("30_hvllt")
@@ -102,6 +104,7 @@ metadata/_custom_type_script = "uid://bp4yaq615iyl5"
 [sub_resource type="BoxShape3D" id="BoxShape3D_wvtie"]
 
 [node name="Level1" type="Node3D"]
+script = ExtResource("1_4yk0h")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_hbghi")
@@ -127,7 +130,7 @@ metadata/_editor_floor_ = Vector3(0, 1, 0)
 transform = Transform3D(0.88428, 0, 0.466958, 0, 1, 0, -0.466958, 0, 0.88428, -11.6303, 11.9587, -26.3613)
 script = ExtResource("21_t4umt")
 render_mode = 1
-modifier_stack = SubResource("Resource_cfnpk")
+modifier_stack = SubResource("Resource_wvtie")
 Performance/use_chunks = true
 Performance/chunk_dimensions = Vector3(15, 15, 15)
 metadata/_custom_type_script = "uid://bbhgp2vrjd35x"
@@ -160,62 +163,81 @@ shape = SubResource("BoxShape3D_wvtie")
 
 [node name="Coins" type="Node3D" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.5123, 4.54583, -1.69273)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin3" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin3" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.90441, 4.54583, -1.74637)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin4" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin4" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04011, 3.3778, -1.49912)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin5" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin5" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04011, 3.3778, -10.9682)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin6" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin6" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04011, 3.3778, -20.8461)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin7" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin7" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04011, 5.47534, -29.4676)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin8" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin8" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.04011, 5.47534, -39.2823)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin9" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin9" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.58108, 7.19652, -43.7378)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin10" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin10" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.29194, 7.14553, -50.4836)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin11" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin11" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.1641, 6.12682, -58.0026)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin12" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin12" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.6123, 4.11198, -45.6518)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin13" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin13" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.2733, 1.7014, -36.9279)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin14" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin14" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.5969, 0.0736002, -29.2906)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin15" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin15" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -27.7557, 5.87219, -62.8984)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin16" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin16" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.8228, 7.64779, -68.21)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin17" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin17" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.8762, 12.0349, -84.5392)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin18" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin18" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.8661, 14.4985, -87.8785)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin19" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin19" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -50.1129, 16.6943, -85.5019)
+hud = NodePath("../../CoinCount")
 
-[node name="Coin20" parent="Coins" instance=ExtResource("28_0qwwm")]
+[node name="Coin20" parent="Coins" node_paths=PackedStringArray("hud") instance=ExtResource("28_0qwwm")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -56.8972, 18.8416, -81.4773)
+hud = NodePath("../../CoinCount")
 
 [node name="Bridges" type="Node3D" parent="."]
 
@@ -340,5 +362,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.0715, -1.71296, -30.2395)
 
 [node name="Goal_Flag" parent="." instance=ExtResource("10_excbq")]
 transform = Transform3D(2.35801, 0, 0, 0, 2.35801, 0, 0, 0, 2.35801, -48.2393, 19.4013, -75.976)
+
+[node name="CoinCount" parent="." instance=ExtResource("30_t4umt")]
 
 [connection signal="body_shape_entered" from="FallZone" to="Player" method="_on_fall_zone_body_shape_entered"]
